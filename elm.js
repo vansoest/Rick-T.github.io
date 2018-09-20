@@ -7982,7 +7982,7 @@ var author$project$Main$viewPlot = function (model) {
 					[
 						A2(
 						author$project$Main$colorSeries,
-						'lightgreen',
+						'green',
 						terezka$elm_charts$Plot$line(
 							function (m) {
 								return _Utils_ap(
@@ -7991,7 +7991,7 @@ var author$project$Main$viewPlot = function (model) {
 							})),
 						A2(
 						author$project$Main$colorSeries,
-						'lightgreen',
+						'green',
 						terezka$elm_charts$Plot$line(
 							function (m) {
 								return _Utils_ap(
