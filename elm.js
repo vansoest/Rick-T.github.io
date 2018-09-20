@@ -7963,7 +7963,7 @@ var author$project$Main$viewPlot = function (model) {
 				return A2(elm$core$Basics$max, 5, maxDist);
 			},
 			toRangeLowest: function (i) {
-				return A2(elm$core$Basics$min, 5, -maxDist);
+				return A2(elm$core$Basics$min, -5, -maxDist);
 			},
 			width: 600
 		});
