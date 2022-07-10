@@ -7169,7 +7169,7 @@ var $author$project$HomePage$parseTerm = function (arg1) {
 		}
 	}
 };
-var $author$project$HomePage$url = '/assets/data/terms.csv';
+var $author$project$HomePage$url = './assets/data/terms.csv';
 var $author$project$HomePage$getTerms = $elm$http$Http$get(
 	{
 		expect: $elm$http$Http$expectString($author$project$HomePage$parseTerm),
