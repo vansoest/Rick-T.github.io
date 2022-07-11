@@ -7909,7 +7909,7 @@ var $author$project$HomePage$viewTerms = function (gamestate) {
 			var term = _v0.a;
 			return $elm$html$Html$text(term.term);
 		} else {
-			return A2($author$project$HomePage$colortext, 'gray', 'Hexenverbrennung');
+			return A2($author$project$HomePage$colortext, 'gray', 'Platzhalter');
 		}
 	}();
 	return A2(
