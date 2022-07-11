@@ -7693,34 +7693,38 @@ var $author$project$HomePage$viewApp = F2(
 			_List_fromArray(
 				[
 					A2($elm$html$Html$Attributes$style, 'width', '100%'),
-					A2($elm$html$Html$Attributes$style, 'height', '100%')
+					A2($elm$html$Html$Attributes$style, 'height', '100vh'),
+					A2($elm$html$Html$Attributes$style, 'text-align', 'center'),
+					A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+					A2($elm$html$Html$Attributes$style, 'flex-direction', 'column'),
+					A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between')
 				]),
-			A2(
-				$elm$core$List$cons,
-				$author$project$HomePage$logo,
-				A2(
-					$elm$core$List$cons,
-					$author$project$HomePage$viewSeparator,
+			_List_fromArray(
+				[
 					A2(
-						$elm$core$List$cons,
-						A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[$author$project$HomePage$logo, $author$project$HomePage$viewSeparator])),
+					A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
 							$elm$html$Html$div,
 							_List_fromArray(
 								[
-									A2($elm$html$Html$Attributes$style, 'display', 'flex')
+									A2($elm$html$Html$Attributes$style, 'font-size', 'calc((75vw - 4.5rem) / 6.66)')
 								]),
 							_List_fromArray(
-								[
-									A2(
-									$elm$html$Html$div,
-									_List_fromArray(
-										[
-											A2($elm$html$Html$Attributes$style, 'font-size', 'calc((75vw - 4.5rem) / 6.66)')
-										]),
-									_List_fromArray(
-										[subtitle]))
-								])),
-						A2($elm$core$List$cons, $author$project$HomePage$viewSeparator, body)))));
+								[subtitle]))
+						])),
+					A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					A2($elm$core$List$cons, $author$project$HomePage$viewSeparator, body))
+				]));
 	});
 var $author$project$HomePage$viewError = function (err) {
 	return A2(
