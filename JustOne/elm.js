@@ -7660,11 +7660,13 @@ var $author$project$HomePage$colortext = F2(
 				]));
 	});
 var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $author$project$HomePage$logo = A2(
 	$elm$html$Html$h1,
-	_List_Nil,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'font-size', '8vw')
+		]),
 	_List_fromArray(
 		[
 			A2($author$project$HomePage$colortext, 'orange', 'J'),
@@ -7688,7 +7690,11 @@ var $author$project$HomePage$viewApp = F2(
 	function (subtitle, body) {
 		return A2(
 			$elm$html$Html$div,
-			_List_Nil,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'width', '100%'),
+					A2($elm$html$Html$Attributes$style, 'height', '100%')
+				]),
 			A2(
 				$elm$core$List$cons,
 				$author$project$HomePage$logo,
@@ -7698,10 +7704,22 @@ var $author$project$HomePage$viewApp = F2(
 					A2(
 						$elm$core$List$cons,
 						A2(
-							$elm$html$Html$h3,
-							_List_Nil,
+							$elm$html$Html$div,
 							_List_fromArray(
-								[subtitle])),
+								[
+									A2($elm$html$Html$Attributes$style, 'display', 'flex')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											A2($elm$html$Html$Attributes$style, 'font-size', 'calc((75vw - 4.5rem) / 6.66)')
+										]),
+									_List_fromArray(
+										[subtitle]))
+								])),
 						A2($elm$core$List$cons, $author$project$HomePage$viewSeparator, body)))));
 	});
 var $author$project$HomePage$viewError = function (err) {
@@ -7727,6 +7745,7 @@ var $elm$html$Html$br = _VirtualDom_node('br');
 var $author$project$HomePage$ChooseCategory = function (a) {
 	return {$: 'ChooseCategory', a: a};
 };
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$core$List$any = F2(
 	function (isOkay, list) {
 		any:
@@ -7762,18 +7781,7 @@ var $elm$html$Html$Attributes$boolProperty = F2(
 			key,
 			$elm$json$Json$Encode$bool(bool));
 	});
-var $elm$html$Html$Attributes$checked = $elm$html$Html$Attributes$boolProperty('checked');
 var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
-var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$json$Json$Encode$string = _Json_wrap;
-var $elm$html$Html$Attributes$stringProperty = F2(
-	function (key, string) {
-		return A2(
-			_VirtualDom_property,
-			key,
-			$elm$json$Json$Encode$string(string));
-	});
-var $elm$html$Html$Attributes$name = $elm$html$Html$Attributes$stringProperty('name');
 var $elm$core$Basics$not = _Basics_not;
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
@@ -7792,7 +7800,6 @@ var $elm$html$Html$Events$onClick = function (msg) {
 		'click',
 		$elm$json$Json$Decode$succeed(msg));
 };
-var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$core$Maybe$withDefault = F2(
 	function (_default, maybe) {
 		if (maybe.$ === 'Just') {
@@ -7804,33 +7811,39 @@ var $elm$core$Maybe$withDefault = F2(
 	});
 var $author$project$HomePage$categoryButton = F2(
 	function (category, gamestate) {
+		var chosen = _Utils_eq(category, gamestate.category);
 		var active = $author$project$HomePage$categoryIsActive(
 			_Utils_update(
 				gamestate,
 				{category: category}));
 		return A2(
 			$elm$html$Html$span,
-			_List_Nil,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'font-size', '3vw')
+				]),
 			_List_fromArray(
 				[
 					A2(
-					$elm$html$Html$input,
+					$elm$html$Html$button,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$type_('radio'),
-							$elm$html$Html$Attributes$name('category'),
 							$elm$html$Html$Events$onClick(
 							$author$project$HomePage$ChooseCategory(category)),
-							$elm$html$Html$Attributes$checked(
-							_Utils_eq(category, gamestate.category)),
-							$elm$html$Html$Attributes$disabled(!active)
+							$elm$html$Html$Attributes$disabled(!active),
+							A2(
+							$elm$html$Html$Attributes$style,
+							'background-color',
+							chosen ? (active ? 'green' : 'red') : 'lightgray')
 						]),
-					_List_Nil),
-					A2(
-					$author$project$HomePage$colortext,
-					active ? 'black' : 'gray',
-					A2($elm$core$Maybe$withDefault, 'Alle', category)),
-					$elm$html$Html$text('\t')
+					_List_fromArray(
+						[
+							A2(
+							$author$project$HomePage$colortext,
+							active ? 'black' : 'gray',
+							A2($elm$core$Maybe$withDefault, 'Alle', category)),
+							$elm$html$Html$text('\t')
+						]))
 				]));
 	});
 var $elm$core$List$sortBy = _List_sortBy;
@@ -7860,12 +7873,14 @@ var $author$project$HomePage$ChooseNext = F2(
 	function (a, b) {
 		return {$: 'ChooseNext', a: a, b: b};
 	});
-var $elm$html$Html$button = _VirtualDom_node('button');
 var $author$project$HomePage$viewNextButton = function (gamestate) {
 	var active = $author$project$HomePage$categoryIsActive(gamestate);
 	return A2(
 		$elm$html$Html$div,
-		_List_Nil,
+		_List_fromArray(
+			[
+				A2($elm$html$Html$Attributes$style, 'font-size', '9.7vw')
+			]),
 		_List_fromArray(
 			[
 				A2(
@@ -7890,7 +7905,7 @@ var $author$project$HomePage$viewTerms = function (gamestate) {
 			var term = _v0.a;
 			return $elm$html$Html$text(term.term);
 		} else {
-			return A2($author$project$HomePage$colortext, 'gray', 'Platzhalter');
+			return A2($author$project$HomePage$colortext, 'gray', 'Hexenverbrennung');
 		}
 	}();
 	return A2(
@@ -7900,10 +7915,7 @@ var $author$project$HomePage$viewTerms = function (gamestate) {
 			[
 				A2($author$project$HomePage$categoryButtons, gamestate, gamestate.categories),
 				A2($elm$html$Html$br, _List_Nil, _List_Nil),
-				$author$project$HomePage$viewNextButton(gamestate),
-				$elm$html$Html$text(
-				$elm$core$String$fromInt(
-					$elm$core$List$length(gamestate.terms)))
+				$author$project$HomePage$viewNextButton(gamestate)
 			]));
 };
 var $author$project$HomePage$view = function (model) {
