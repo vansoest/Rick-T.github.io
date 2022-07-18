@@ -5423,7 +5423,7 @@ var $elm$core$Set$Set_elm_builtin = function (a) {
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
 var $elm$core$Set$empty = $elm$core$Set$Set_elm_builtin($elm$core$Dict$empty);
-var $author$project$HomePage$emptyModel = {categories: $elm$core$Set$empty, category: $elm$core$Maybe$Nothing, current: $elm$core$Maybe$Nothing, error: $elm$core$Maybe$Nothing, terms: _List_Nil};
+var $author$project$HomePage$emptyModel = {categories: $elm$core$Set$empty, categoriesActive: $elm$core$Set$empty, current: $elm$core$Maybe$Nothing, error: $elm$core$Maybe$Nothing, terms: _List_Nil};
 var $elm$http$Http$BadStatus_ = F2(
 	function (a, b) {
 		return {$: 'BadStatus_', a: a, b: b};
@@ -7177,28 +7177,93 @@ var $author$project$HomePage$getTerms = $elm$http$Http$get(
 	});
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
+	});
+var $author$project$HomePage$categoryHasTerms = F2(
+	function (terms, cat) {
+		return A2(
+			$elm$core$List$any,
+			function (t) {
+				return _Utils_eq(t.category1, cat);
+			},
+			terms);
+	});
+var $elm$core$Dict$foldl = F3(
+	function (func, acc, dict) {
+		foldl:
+		while (true) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
+				return acc;
+			} else {
+				var key = dict.b;
+				var value = dict.c;
+				var left = dict.d;
+				var right = dict.e;
+				var $temp$func = func,
+					$temp$acc = A3(
+					func,
+					key,
+					value,
+					A3($elm$core$Dict$foldl, func, acc, left)),
+					$temp$dict = right;
+				func = $temp$func;
+				acc = $temp$acc;
+				dict = $temp$dict;
+				continue foldl;
+			}
+		}
+	});
+var $elm$core$Dict$filter = F2(
+	function (isGood, dict) {
+		return A3(
+			$elm$core$Dict$foldl,
+			F3(
+				function (k, v, d) {
+					return A2(isGood, k, v) ? A3($elm$core$Dict$insert, k, v, d) : d;
+				}),
+			$elm$core$Dict$empty,
+			dict);
+	});
+var $elm$core$Set$filter = F2(
+	function (isGood, _v0) {
+		var dict = _v0.a;
+		return $elm$core$Set$Set_elm_builtin(
+			A2(
+				$elm$core$Dict$filter,
+				F2(
+					function (key, _v1) {
+						return isGood(key);
+					}),
+				dict));
+	});
+var $author$project$HomePage$availableCategories = function (gamestate) {
+	return A2(
+		$elm$core$Set$filter,
+		$author$project$HomePage$categoryHasTerms(gamestate.terms),
+		gamestate.categories);
+};
 var $author$project$HomePage$NextTerm = function (a) {
 	return {$: 'NextTerm', a: a};
 };
-var $author$project$HomePage$isCategory = F2(
-	function (mCategory, term) {
-		if (mCategory.$ === 'Just') {
-			var cat = mCategory.a;
-			return _Utils_eq(term.category1, cat);
-		} else {
-			return true;
-		}
-	});
-var $author$project$HomePage$choiceIsCategory = F2(
-	function (mCategory, _v0) {
-		var mTerm = _v0.a;
-		if (mTerm.$ === 'Nothing') {
-			return true;
-		} else {
-			var term = mTerm.a;
-			return A2($author$project$HomePage$isCategory, mCategory, term);
-		}
-	});
 var $elm$core$List$append = F2(
 	function (xs, ys) {
 		if (!ys.b) {
@@ -7548,14 +7613,61 @@ var $elm$random$Random$generate = F2(
 			$elm$random$Random$Generate(
 				A2($elm$random$Random$map, tagger, generator)));
 	});
+var $elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return $elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $elm$core$Dict$member = F2(
+	function (key, dict) {
+		var _v0 = A2($elm$core$Dict$get, key, dict);
+		if (_v0.$ === 'Just') {
+			return true;
+		} else {
+			return false;
+		}
+	});
+var $elm$core$Set$member = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return A2($elm$core$Dict$member, key, dict);
+	});
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
 var $author$project$HomePage$chooseNext = F2(
-	function (mCategory, terms) {
+	function (categories, terms) {
 		return A2(
 			$elm$random$Random$generate,
 			$author$project$HomePage$NextTerm,
 			A2(
 				$elm_community$random_extra$Random$Extra$filter,
-				$author$project$HomePage$choiceIsCategory(mCategory),
+				function (_v0) {
+					var choice = _v0.a;
+					return A2(
+						$elm$core$Set$member,
+						A2(
+							$elm$core$Maybe$withDefault,
+							'',
+							A2(
+								$elm$core$Maybe$map,
+								function (c) {
+									return c.category1;
+								},
+								choice)),
+						categories);
+				},
 				$elm_community$random_extra$Random$List$choose(terms)));
 	});
 var $elm$core$Set$insert = F2(
@@ -7568,22 +7680,58 @@ var $elm$core$Set$fromList = function (list) {
 	return A3($elm$core$List$foldl, $elm$core$Set$insert, $elm$core$Set$empty, list);
 };
 var $author$project$HomePage$init = function (terms) {
-	return {
-		categories: $elm$core$Set$fromList(
-			A2(
-				$elm$core$List$map,
-				function (t) {
-					return t.category1;
-				},
-				terms)),
-		category: $elm$core$Maybe$Nothing,
-		current: $elm$core$Maybe$Nothing,
-		error: $elm$core$Maybe$Nothing,
-		terms: terms
-	};
+	var categories = $elm$core$Set$fromList(
+		A2(
+			$elm$core$List$map,
+			function (t) {
+				return t.category1;
+			},
+			terms));
+	return {categories: categories, categoriesActive: categories, current: $elm$core$Maybe$Nothing, error: $elm$core$Maybe$Nothing, terms: terms};
+};
+var $elm$core$Dict$isEmpty = function (dict) {
+	if (dict.$ === 'RBEmpty_elm_builtin') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $elm$core$Set$isEmpty = function (_v0) {
+	var dict = _v0.a;
+	return $elm$core$Dict$isEmpty(dict);
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $elm$core$Set$remove = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return $elm$core$Set$Set_elm_builtin(
+			A2($elm$core$Dict$remove, key, dict));
+	});
+var $elm$core$Dict$sizeHelp = F2(
+	function (n, dict) {
+		sizeHelp:
+		while (true) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
+				return n;
+			} else {
+				var left = dict.d;
+				var right = dict.e;
+				var $temp$n = A2($elm$core$Dict$sizeHelp, n + 1, right),
+					$temp$dict = left;
+				n = $temp$n;
+				dict = $temp$dict;
+				continue sizeHelp;
+			}
+		}
+	});
+var $elm$core$Dict$size = function (dict) {
+	return A2($elm$core$Dict$sizeHelp, 0, dict);
+};
+var $elm$core$Set$size = function (_v0) {
+	var dict = _v0.a;
+	return $elm$core$Dict$size(dict);
+};
 var $author$project$HomePage$update = F2(
 	function (msg, model) {
 		switch (msg.$) {
@@ -7600,12 +7748,27 @@ var $author$project$HomePage$update = F2(
 				return _Utils_Tuple2(
 					model,
 					A2($author$project$HomePage$chooseNext, mCategory, terms));
-			case 'ChooseCategory':
+			case 'ToggleCategory':
 				var cat = msg.a;
+				var updateCategories = function (updateFunction) {
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								categoriesActive: A2(updateFunction, cat, model.categoriesActive)
+							}),
+						$elm$core$Platform$Cmd$none);
+				};
+				return A2($elm$core$Set$member, cat, model.categoriesActive) ? updateCategories($elm$core$Set$remove) : updateCategories($elm$core$Set$insert);
+			case 'ToggleAllCategories':
+				var availables = $author$project$HomePage$availableCategories(model);
+				var cats = $elm$core$Set$isEmpty(model.categoriesActive) ? availables : (_Utils_eq(
+					$elm$core$Set$size(model.categoriesActive),
+					$elm$core$Set$size(availables)) ? $elm$core$Set$empty : availables);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{category: cat}),
+						{categoriesActive: cats}),
 					$elm$core$Platform$Cmd$none);
 			case 'NextTerm':
 				var _v1 = msg.a;
@@ -7621,10 +7784,12 @@ var $author$project$HomePage$update = F2(
 						$elm$core$Platform$Cmd$none);
 				} else {
 					var term = mTerm.a;
+					var cats = A2($author$project$HomePage$categoryHasTerms, terms, term.category1) ? model.categoriesActive : A2($elm$core$Set$remove, term.category1, model.categoriesActive);
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
 							{
+								categoriesActive: cats,
 								current: $elm$core$Maybe$Just(term),
 								terms: terms
 							}),
@@ -7746,37 +7911,11 @@ var $author$project$HomePage$viewInit = A2(
 	A2($author$project$HomePage$colortext, 'blue', 'Terms are loading..'),
 	_List_Nil);
 var $elm$html$Html$br = _VirtualDom_node('br');
-var $author$project$HomePage$ChooseCategory = function (a) {
-	return {$: 'ChooseCategory', a: a};
+var $author$project$HomePage$ToggleCategory = function (a) {
+	return {$: 'ToggleCategory', a: a};
 };
 var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$core$List$any = F2(
-	function (isOkay, list) {
-		any:
-		while (true) {
-			if (!list.b) {
-				return false;
-			} else {
-				var x = list.a;
-				var xs = list.b;
-				if (isOkay(x)) {
-					return true;
-				} else {
-					var $temp$isOkay = isOkay,
-						$temp$list = xs;
-					isOkay = $temp$isOkay;
-					list = $temp$list;
-					continue any;
-				}
-			}
-		}
-	});
-var $author$project$HomePage$categoryIsActive = function (gamestate) {
-	return A2(
-		$elm$core$List$any,
-		$author$project$HomePage$isCategory(gamestate.category),
-		gamestate.terms);
-};
+var $author$project$HomePage$buttonStyle = A2($elm$html$Html$Attributes$style, 'font-size', '3vw');
 var $elm$json$Json$Encode$bool = _Json_wrap;
 var $elm$html$Html$Attributes$boolProperty = F2(
 	function (key, bool) {
@@ -7804,28 +7943,14 @@ var $elm$html$Html$Events$onClick = function (msg) {
 		'click',
 		$elm$json$Json$Decode$succeed(msg));
 };
-var $elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
-	});
 var $author$project$HomePage$categoryButton = F2(
 	function (category, gamestate) {
-		var chosen = _Utils_eq(category, gamestate.category);
-		var active = $author$project$HomePage$categoryIsActive(
-			_Utils_update(
-				gamestate,
-				{category: category}));
+		var chosen = A2($elm$core$Set$member, category, gamestate.categoriesActive);
+		var active = A2($author$project$HomePage$categoryHasTerms, gamestate.terms, category);
 		return A2(
 			$elm$html$Html$span,
 			_List_fromArray(
-				[
-					A2($elm$html$Html$Attributes$style, 'font-size', '3vw')
-				]),
+				[$author$project$HomePage$buttonStyle]),
 			_List_fromArray(
 				[
 					A2(
@@ -7833,19 +7958,19 @@ var $author$project$HomePage$categoryButton = F2(
 					_List_fromArray(
 						[
 							$elm$html$Html$Events$onClick(
-							$author$project$HomePage$ChooseCategory(category)),
+							$author$project$HomePage$ToggleCategory(category)),
 							$elm$html$Html$Attributes$disabled(!active),
 							A2(
 							$elm$html$Html$Attributes$style,
 							'background-color',
-							chosen ? (active ? 'green' : 'red') : 'lightgray')
+							chosen ? (active ? 'green' : 'red') : 'darkgray')
 						]),
 					_List_fromArray(
 						[
 							A2(
 							$author$project$HomePage$colortext,
 							active ? 'black' : 'gray',
-							A2($elm$core$Maybe$withDefault, 'Alle', category)),
+							category),
 							$elm$html$Html$text('\t')
 						]))
 				]));
@@ -7854,31 +7979,60 @@ var $elm$core$List$sortBy = _List_sortBy;
 var $elm$core$List$sort = function (xs) {
 	return A2($elm$core$List$sortBy, $elm$core$Basics$identity, xs);
 };
-var $author$project$HomePage$categoryButtons = F2(
-	function (gamestate, cats) {
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			A2(
-				$elm$core$List$map,
-				function (cat) {
-					return A2($author$project$HomePage$categoryButton, cat, gamestate);
-				},
+var $author$project$HomePage$categoryButtons = function (gamestate) {
+	return A2(
+		$elm$html$Html$div,
+		_List_Nil,
+		A2(
+			$elm$core$List$map,
+			function (cat) {
+				return A2($author$project$HomePage$categoryButton, cat, gamestate);
+			},
+			$elm$core$List$sort(
+				$elm$core$Set$toList(gamestate.categories))));
+};
+var $author$project$HomePage$ToggleAllCategories = {$: 'ToggleAllCategories'};
+var $author$project$HomePage$toggleAllButton = function (gamestate) {
+	return A2(
+		$elm$html$Html$span,
+		_List_fromArray(
+			[$author$project$HomePage$buttonStyle]),
+		_List_fromArray(
+			[
 				A2(
-					$elm$core$List$cons,
-					$elm$core$Maybe$Nothing,
-					A2(
-						$elm$core$List$map,
-						$elm$core$Maybe$Just,
-						$elm$core$List$sort(
-							$elm$core$Set$toList(cats))))));
-	});
+				$elm$html$Html$button,
+				_List_fromArray(
+					[
+						$elm$html$Html$Events$onClick($author$project$HomePage$ToggleAllCategories),
+						A2(
+						$elm$html$Html$Attributes$style,
+						'background-color',
+						$elm$core$Set$isEmpty(gamestate.categoriesActive) ? 'darkgray' : (_Utils_eq(
+							$elm$core$Set$size(gamestate.categoriesActive),
+							$elm$core$Set$size(
+								$author$project$HomePage$availableCategories(gamestate))) ? 'green' : 'olive'))
+					]),
+				_List_fromArray(
+					[
+						A2($author$project$HomePage$colortext, 'black', 'Alle'),
+						$elm$html$Html$text('\t')
+					]))
+			]));
+};
 var $author$project$HomePage$ChooseNext = F2(
 	function (a, b) {
 		return {$: 'ChooseNext', a: a, b: b};
 	});
+var $author$project$HomePage$termsAvailable = function (gamestate) {
+	return A2(
+		$elm$core$List$any,
+		function (value) {
+			return A2($elm$core$Set$member, value.category1, gamestate.categoriesActive);
+		},
+		gamestate.terms);
+};
 var $author$project$HomePage$viewNextButton = function (gamestate) {
-	var active = $author$project$HomePage$categoryIsActive(gamestate);
+	var active = $author$project$HomePage$termsAvailable(gamestate);
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -7892,13 +8046,13 @@ var $author$project$HomePage$viewNextButton = function (gamestate) {
 				_List_fromArray(
 					[
 						$elm$html$Html$Events$onClick(
-						A2($author$project$HomePage$ChooseNext, gamestate.category, gamestate.terms)),
+						A2($author$project$HomePage$ChooseNext, gamestate.categoriesActive, gamestate.terms)),
 						$elm$html$Html$Attributes$disabled(!active)
 					]),
 				_List_fromArray(
 					[
 						$elm$html$Html$text(
-						active ? 'Nächster Begriff' : 'Keine Begriffe mehr in dieser Kategorie')
+						active ? 'Nächster Begriff' : 'Keine Begriffe mehr')
 					]))
 			]));
 };
@@ -7917,7 +8071,8 @@ var $author$project$HomePage$viewTerms = function (gamestate) {
 		begriff,
 		_List_fromArray(
 			[
-				A2($author$project$HomePage$categoryButtons, gamestate, gamestate.categories),
+				$author$project$HomePage$toggleAllButton(gamestate),
+				$author$project$HomePage$categoryButtons(gamestate),
 				A2($elm$html$Html$br, _List_Nil, _List_Nil),
 				$author$project$HomePage$viewNextButton(gamestate)
 			]));
