@@ -8071,10 +8071,10 @@ var $author$project$HomePage$viewTerms = function (gamestate) {
 		begriff,
 		_List_fromArray(
 			[
-				$author$project$HomePage$toggleAllButton(gamestate),
-				$author$project$HomePage$categoryButtons(gamestate),
+				$author$project$HomePage$viewNextButton(gamestate),
 				A2($elm$html$Html$br, _List_Nil, _List_Nil),
-				$author$project$HomePage$viewNextButton(gamestate)
+				$author$project$HomePage$toggleAllButton(gamestate),
+				$author$project$HomePage$categoryButtons(gamestate)
 			]));
 };
 var $author$project$HomePage$view = function (model) {
