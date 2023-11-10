@@ -1,4 +1,4 @@
-﻿Begriff,Kategorie 1
+Begriff,Kategorie 1
 Darkwing,(Kinder-)Serien
 Magic,Nerd
 Zeppelin,Luft-und Raumfahrt
@@ -8,7 +8,6 @@ Dune,Literatur
 Verchromt,Spongebob
 Monopoly,Brettspiele
 Spongebob,(Kinder-)Serien
-Seestern,Spongebob
 Seepferdchen,Spongebob
 Thaddeus,Spongebob
 Kekse,Allgemein
@@ -19,7 +18,6 @@ Wednesday,(Kinder-)Serien
 Winde,Nerd
 Yu-Gi-Oh,Nerd
 Soufflé,Spongebob
-Eintopf,Genussmittel
 Kürbis,Genussmittel
 Tee,Genussmittel
 Zigarre,Genussmittel
@@ -27,12 +25,11 @@ Chips,Allgemein
 Nerd,Allgemein
 Gürkchen,Spongebob
 Psychologe,Beruf
-Jogginghose,Allgemein
 Pelikan,Allgemein
-Miesmuschel,Spongebob
 Irland,Geographie
 Grönland,Geographie
 Trump,Allgemein
+Seestern,Spongebob
 Dodo,Nerd
 Drogen,Genussmittel
 Kaffee,Genussmittel
@@ -93,7 +90,6 @@ Loki,Marvel
 Thor,Marvel
 Odin,Marvel
 Mayonaise,Spongebob
-Meerrettich,Spongebob
 Chili,Genussmittel
 Tabasco,Genussmittel
 Tischler,Beruf
@@ -101,18 +97,14 @@ Kolosseum,Allgemein
 Babylon,Literatur
 Medikament,Allgemein
 Sibirien,Geographie
-Geheimrezept,Spongebob
-Kugelfisch,Spongebob
 Saturn,Allgemein
 Pantomime,Allgemein
 Starbucks,Genussmittel
 Extrem,Allgemein
 Extremität,Allgemein
-Photosynthese,Spongebob
 Plankton,Spongebob
 Chlorophyll,Allgemein
 Stadion,Allgemein
-Jahrhundert,Allgemein
 Fregatte,Allgemein
 Knappe,Pott und Pütt
 Zeche,Pott und Pütt
@@ -127,7 +119,6 @@ Werkstoffprüfer,Beruf
 Ingenieur,Beruf
 Chemikant,Beruf
 Sprite,Genussmittel
-Kinderriegel,Genussmittel
 Techniker,Beruf
 Musiker,Beruf
 Klarinette,Spongebob
@@ -184,7 +175,6 @@ Maschen,Allgemein
 Draht,Allgemein
 ISS,Luft-und Raumfahrt
 Schall,Allgemein
-Rumpelstilzchen,Literatur
 Zustand,Allgemein
 Mimic,Nerd
 Safran,Genussmittel
@@ -262,60 +252,70 @@ Isotonisch,Nerd
 R2D2,Nerd
 Arenaleiter,Nerd
 Pokémon,Nerd
-Betonmischer,Allgemein
 Werner,Nerd
 Algorithmus,Nerd
 Kryptographie,Nerd
 ChatGPT,Nerd
 Blockchain,Nerd
-Quantumcomputing,Nerd
+Quanten,Nerd
 Propeller,Allgemein
 Penis,Allgemein
 Citymonkey,Allgemein
 Musical,Allgemein
 Essen (Stadt),Allgemein
-Nordkorea,Allgemein
 Apple,Nerd
 Schlumpf,Allgemein
 Kerzen,Allgemein
 Nachhilfe,Allgemein
 Kamikaze,Allgemein
-Sollbruchstelle,Allgemein
-Kennzeichen,Allgemein
 Frittierfett,Allgemein
-Sicherungskasten,Allgemein
+Sicherung,Allgemein
 Blaumann,Allgemein
-Taschenlampe,Allgemein
 Telegramm,Allgemein
 Morsecode,Nerd
 Laterne,Allgemein
-Binnenmeer,Allgemein
 Zigarre,Genussmittel
 Falafel,Genussmittel
 Schaffner,Allgemein
 Cider,Genussmittel
-Babysitter,Allgemein
 Kumpir,Genussmittel
-Autoreifen,Allgemein
 Festplatte,Nerd
 Friedhof,Allgmein
 Reiseagentur,Allgemein
-Tintenfisch,Allgemein
 Zirkus,Allgemein
-Gabelstapler,Allgemein
-Toilettenpapier,Allgemein
-Fensterrahmen,Allgemein
-Radkappe,Allgemein
+Fenster,Allgemein
 Tandem,Allgemein
 Propeller,Allgemein
 Penis,Allgemein
 Citymonkey,Allgemein
+Element,Nerd
 Musical,Allemein
 Essen (Stadt),Allgemein
 Nordkorea,Allgemein
 Apple,Allgemein
-Element,Nerd
 Stromberg,TV
 Matcha,Genussmittel
 Himalaya,Geographie
 Ernie,TV
+Kennzeichen,Allgemein
+Babysitter,Allgemein
+Radkappe,Allgemein
+Nordkorea,Allgemein
+Binnenmeer,Allgemein
+Sollbruchstelle,Allgemein
+Taschenlampe,Allgemein
+Toilettenpapier,Allgemein
+Gabelstapler,Allgemein
+Tintenfisch,Allgemein
+Autoreifen,Allgemein
+Betonmischer,Allgemein
+Kinderriegel,Genussmittel
+Photosynthese,Spongebob
+Kugelfisch,Spongebob
+Geheimrezept,Spongebob
+Meerrettich,Spongebob
+Miesmuschel,Spongebob
+Eintopf,Genussmittel
+Jogginghose,Allgemein
+Jahrhundert,Allgemein
+Rumpelstilzchen,Literatur
