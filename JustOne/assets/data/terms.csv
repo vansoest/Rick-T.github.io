@@ -1,6 +1,8 @@
 Begriff,Kategorie 1
 Darkwing,(Kinder-)Serien
 Magic,Nerd
+Zeppelin,Luft-und Raumfahrt
+Raumfahrt,Luft-und Raumfahrt
 Tolkien,Literatur
 Dune,Literatur
 Verchromt,Spongebob
@@ -46,11 +48,9 @@ Conan,Nerd
 Zauberei,Allgemein
 Mikrofon,Allgemein
 Amazonas,Geographie
-LTB,(Kinder-)Serien
 Erdnuss,Genussmittel
 Laptop,Allgemein
 Lego,Nerd
-EMP,Allgemein
 Bueno,Genussmittel
 Vegan,Genussmittel
 Asterix,(Kinder-)Serien
@@ -96,7 +96,6 @@ Saturn,Allgemein
 Pantomime,Allgemein
 Starbucks,Genussmittel
 Extrem,Allgemein
-Extremität,Allgemein
 Plankton,Spongebob
 Chlorophyll,Allgemein
 Stadion,Allgemein
@@ -113,6 +112,7 @@ Werkstoffprüfer,Beruf
 Übersetzer,Beruf
 Ingenieur,Beruf
 Chemikant,Beruf
+Extremität,Allgemein
 Sprite,Genussmittel
 Techniker,Beruf
 Musiker,Beruf
@@ -190,7 +190,6 @@ Gefüge,Allgemein
 Sünde,Allgemein
 Lücke,Allgemein
 Ex,Allgemein
-Explosion,Allgemein
 Apokalypse,Literatur
 Tod,Allgemein
 Trumpf,Allgemein
@@ -199,6 +198,7 @@ Wissen,Allgemein
 Koralle,Spongebob
 Eugene,Spongebob
 Formel,Allgemein
+Explosion,Allgemein
 Wende,Allgemein
 Stecker,Allgemein
 Friedrich,Allgemein
@@ -269,12 +269,7 @@ Zirkus,Allgemein
 Fenster,Allgemein
 Tandem,Allgemein
 Citymonkey,Allgemein
-Propeller,Allgemein
-Penis,Allgemein
 Element,Nerd
-Musical,Allgemein
-Essen (Stadt),Allgemein
-Apple,Allgemein
 Stromberg,TV
 Kombucha,Genussmittel
 Nintendo,Allgemein
@@ -319,8 +314,9 @@ Stalin,Allgemein
 Faschismus,Allgemein
 Cider,Genussmittel
 Kumpir,Genussmittel
+LTB,(Kinder-)Serien
+EMP,Allgemein
 Festplatte,Nerd
-Generator,Nerd
 Kennzeichen,Allgemein
 Babysitter,Allgemein
 Radkappe,Allgemein
@@ -343,13 +339,13 @@ Meerrettich,Spongebob
 Miesmuschel,Spongebob
 Eintopf,Genussmittel
 Jogginghose,Allgemein
+Aluhut,Allgemein
 Jahrhundert,Allgemein
 Rumpelstilzchen,Literatur
 Reiseagentur,Allgemein
 Frittierfett,Allgemein
-Zeppelin,Luft-und Raumfahrt
-Seepferdchen,Spongebob
-Raumfahrt,Luft-und Raumfahrt
-Weltkarte,Geographie
-Aluhut,Allgemein
 Achterbahn,Allgemein
+Seepferdchen,Spongebob
+Weltkarte,Geographie
+Vagina,Allgemein
+Koriander,Genussmittel
