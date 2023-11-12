@@ -30,7 +30,6 @@ Dodo,Nerd
 Drogen,Genussmittel
 Kaffee,Genussmittel
 Zucker,Genussmittel
-Werner,Nerd
 Meme,Nerd
 Otto,Allgemein
 Virus,Allgemein
@@ -139,7 +138,6 @@ Poster,Allgemein
 Pokal,Allgemein
 Kokerei,Pott und Pütt
 Ruhr,Geographie
-Gravitation,Allgemein
 Elektrizität,Allgemein
 Revier,Pott und Pütt
 Kadaver,Allgemein
@@ -156,7 +154,6 @@ Anglizismus,Literatur
 Heidi,(Kinder-)Serien
 Konfuzius,Literatur
 Torf,Allgemein
-Samson,(Kinder-)Serien
 Wickie,(Kinder-)Serien
 Fantasie,Allgemein
 Spencer,Allgemein
@@ -221,7 +218,7 @@ Nord,Allgemein
 Eistee,Allgemein
 Hula-Hoop,Sport
 Golf,Sport
-Ampel,Allgmein
+Ampel,Allgemein
 Tastatur,Nerd
 Banane,Genussmittel
 Linux,Nerd
@@ -232,7 +229,6 @@ Japan,Allgemein
 Gorilla,Allgemein
 Regen,Allgemein
 Entropie,Nerd
-Diesel,Nerd
 Katastrophe,Allgemein
 Drohne,Nerd
 Emoji,Nerd
@@ -266,16 +262,13 @@ Blaumann,Allgemein
 Telegramm,Allgemein
 Morsecode,Nerd
 Laterne,Allgemein
-Zigarre,Genussmittel
 Falafel,Genussmittel
 Schaffner,Allgemein
-Cider,Genussmittel
-Kumpir,Genussmittel
-Festplatte,Nerd
 Friedhof,Allgmein
 Zirkus,Allgemein
 Fenster,Allgemein
 Tandem,Allgemein
+Citymonkey,Allgemein
 Propeller,Allgemein
 Penis,Allgemein
 Element,Nerd
@@ -283,16 +276,58 @@ Musical,Allgemein
 Essen (Stadt),Allgemein
 Apple,Allgemein
 Stromberg,TV
+Kombucha,Genussmittel
+Nintendo,Allgemein
+Nippel,Allgemein
+Urheberrecht,Allgemein
 Matcha,Genussmittel
 Himalaya,Geographie
+Dinosaurier,Allgemein
+Archäologie, Beruf
+Aufmerksamkeit,Allgemein
+Mühle,Allgemein
+Teleskop,Allgemein
+Kaktus Allgemein
+Pyramide,Allgemein
+Buch,Allgemein 
+Kerze,Allgemein,
+Curry,Genussmittel
+Islam,Allgemein
+Holland,Geographie
+Lautsprecher,Allgemein
 Ernie,TV
 Mexikaner,Allgemein
+Chrom,Nerd
+Apartheid,Allgemein
+Tesla,Allgemein
+Edison,Allgemein
+Strom,Allgemein
+Marx,Allgemein
+Pirat,Allgemein
+Schiff,Allgemein
+Sitzung,Allgemein
+Boomerang,Allgemein
+Rechen,Allgemein
+Laier,Allgemein
+MacGuyver,TV
+Magnet,Allgemein
+Zink,Allgemein
+Ladung,Allgemein
+Kabine,Allgemein
+Reaktion,Allgemein
+Stalin,Allgemein
+Faschismus,Allgemein
+Cider,Genussmittel
+Kumpir,Genussmittel
+Festplatte,Nerd
 Generator,Nerd
 Kennzeichen,Allgemein
 Babysitter,Allgemein
 Radkappe,Allgemein
+Kokosnuss,Genussmittel
 Nordkorea,Allgemein
 Binnenmeer,Allgemein
+Luftpumpe,Allgemein
 Sollbruchstelle,Allgemein
 Taschenlampe,Allgemein
 Toilettenpapier,Allgemein
@@ -311,7 +346,6 @@ Jogginghose,Allgemein
 Jahrhundert,Allgemein
 Rumpelstilzchen,Literatur
 Reiseagentur,Allgemein
-Citymonkey,Allgemein
 Frittierfett,Allgemein
 Zeppelin,Luft-und Raumfahrt
 Seepferdchen,Spongebob
