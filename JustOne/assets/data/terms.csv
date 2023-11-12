@@ -1,14 +1,18 @@
 Begriff,Kategorie 1
 Darkwing,(Kinder-)Serien
 Magic,Nerd
+Zeppelin,Luft-und Raumfahrt
+Raumfahrt,Luft-und Raumfahrt
 Tolkien,Literatur
 Dune,Literatur
 Verchromt,Spongebob
 Monopoly,Brettspiele
 Spongebob,(Kinder-)Serien
-Thaddäus,Spongebob
+Seepferdchen,Spongebob
+Thaddeus,Spongebob
 Kekse,Allgemein
 Atlas,Geographie
+Weltkarte,Geographie
 Samson,(Kinder-)Serien
 Wednesday,(Kinder-)Serien
 Winde,Nerd
@@ -72,7 +76,7 @@ Plastik,Allgemein
 Teufel,Allgemein
 Kaiser,Allgemein
 Extra,Allgemein
-Gamora,Marvel
+Gamorra,Marvel
 Groot,Marvel
 Hulk,Marvel
 Goblin,Nerd
@@ -84,7 +88,7 @@ Schiller,Literatur
 Loki,Marvel
 Thor,Marvel
 Odin,Marvel
-Mayonnaise,Spongebob
+Mayonaise,Spongebob
 Chili,Genussmittel
 Tabasco,Genussmittel
 Tischler,Beruf
@@ -145,6 +149,7 @@ Radieschen,Genussmittel
 Pepe,Nerd
 Märchen,Literatur
 Egal,Allgemein
+Aluhut,Allgemein
 Bielefeld,Allgemein
 Schürze,Allgemein
 Kittel,Pott und Pütt
@@ -226,6 +231,7 @@ Fritz,Allgemein
 Download,Nerd
 Barista,Allgemein
 Japan,Allgemein
+Achterbahn,Allgemein
 Gorilla,Allgemein
 Regen,Allgemein
 Entropie,Nerd
@@ -269,12 +275,7 @@ Zirkus,Allgemein
 Fenster,Allgemein
 Tandem,Allgemein
 Citymonkey,Allgemein
-Propeller,Allgemein
-Penis,Allgemein
 Element,Nerd
-Musical,Allgemein
-Essen (Stadt),Allgemein
-Apple,Allgemein
 Stromberg,TV
 Kombucha,Genussmittel
 Nintendo,Allgemein
@@ -320,7 +321,6 @@ Faschismus,Allgemein
 Cider,Genussmittel
 Kumpir,Genussmittel
 Festplatte,Nerd
-Generator,Nerd
 Kennzeichen,Allgemein
 Babysitter,Allgemein
 Radkappe,Allgemein
@@ -347,9 +347,3 @@ Jahrhundert,Allgemein
 Rumpelstilzchen,Literatur
 Reiseagentur,Allgemein
 Frittierfett,Allgemein
-Zeppelin,Luft-und Raumfahrt
-Seepferdchen,Spongebob
-Raumfahrt,Luft-und Raumfahrt
-Weltkarte,Geographie
-Aluhut,Allgemein
-Achterbahn,Allgemein
