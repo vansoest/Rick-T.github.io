@@ -1,6 +1,8 @@
 Begriff,Kategorie 1
 Darkwing,(Kinder-)Serien
 Magic,Nerd
+Zeppelin,Luft-und Raumfahrt
+Raumfahrt,Luft-und Raumfahrt
 Tolkien,Literatur
 Dune,Literatur
 Verchromt,Spongebob
@@ -269,12 +271,7 @@ Zirkus,Allgemein
 Fenster,Allgemein
 Tandem,Allgemein
 Citymonkey,Allgemein
-Propeller,Allgemein
-Penis,Allgemein
 Element,Nerd
-Musical,Allgemein
-Essen (Stadt),Allgemein
-Apple,Allgemein
 Stromberg,TV
 Kombucha,Genussmittel
 Nintendo,Allgemein
@@ -320,7 +317,6 @@ Faschismus,Allgemein
 Cider,Genussmittel
 Kumpir,Genussmittel
 Festplatte,Nerd
-Generator,Nerd
 Kennzeichen,Allgemein
 Babysitter,Allgemein
 Radkappe,Allgemein
@@ -343,13 +339,11 @@ Meerrettich,Spongebob
 Miesmuschel,Spongebob
 Eintopf,Genussmittel
 Jogginghose,Allgemein
+Aluhut,Allgemein
 Jahrhundert,Allgemein
 Rumpelstilzchen,Literatur
 Reiseagentur,Allgemein
 Frittierfett,Allgemein
-Zeppelin,Luft-und Raumfahrt
-Seepferdchen,Spongebob
-Raumfahrt,Luft-und Raumfahrt
-Weltkarte,Geographie
-Aluhut,Allgemein
 Achterbahn,Allgemein
+Seepferdchen,Spongebob
+Weltkarte,Geographie
