@@ -48,11 +48,9 @@ Conan,Nerd
 Zauberei,Allgemein
 Mikrofon,Allgemein
 Amazonas,Geographie
-LTB,(Kinder-)Serien
 Erdnuss,Genussmittel
 Laptop,Allgemein
 Lego,Nerd
-EMP,Allgemein
 Bueno,Genussmittel
 Vegan,Genussmittel
 Asterix,(Kinder-)Serien
@@ -98,7 +96,6 @@ Saturn,Allgemein
 Pantomime,Allgemein
 Starbucks,Genussmittel
 Extrem,Allgemein
-Extremität,Allgemein
 Plankton,Spongebob
 Chlorophyll,Allgemein
 Stadion,Allgemein
@@ -115,6 +112,7 @@ Werkstoffprüfer,Beruf
 Übersetzer,Beruf
 Ingenieur,Beruf
 Chemikant,Beruf
+Extremität,Allgemein
 Sprite,Genussmittel
 Techniker,Beruf
 Musiker,Beruf
@@ -192,7 +190,6 @@ Gefüge,Allgemein
 Sünde,Allgemein
 Lücke,Allgemein
 Ex,Allgemein
-Explosion,Allgemein
 Apokalypse,Literatur
 Tod,Allgemein
 Trumpf,Allgemein
@@ -201,6 +198,7 @@ Wissen,Allgemein
 Koralle,Spongebob
 Eugene,Spongebob
 Formel,Allgemein
+Explosion,Allgemein
 Wende,Allgemein
 Stecker,Allgemein
 Friedrich,Allgemein
@@ -316,6 +314,8 @@ Stalin,Allgemein
 Faschismus,Allgemein
 Cider,Genussmittel
 Kumpir,Genussmittel
+LTB,(Kinder-)Serien
+EMP,Allgemein
 Festplatte,Nerd
 Kennzeichen,Allgemein
 Babysitter,Allgemein
